@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"> <!--informuje przeglądarkę internetową o kodowaniu znaków używanym w dokumencie HTML-->
+    <title>Tytuł artykułu</title>
+    <style>
+      body {
+        margin: 0; <!--ustawia marginesy na zero 0, co oznacza, że nie będzie odstępów między zawartością strony a jej krawędziami.-->
+        padding: 0; <!--stawia marginesy wewnętrzne (padding) sekcji <body> na zero pikseli, co oznacza, że nie będzie żadnych odstępów między elementami wewnątrz sekcji.-->
+        font-family: Arial, sans-serif; <!--Definiuje fonty, jak nie będzie Arial to szuka sans-serif-->
+      }
+      
+      .container {
+        display: flex;
+        height: 100vh;
+      }
+      
+      .sidebar {
+        flex-basis: 120px;
+        background-color: #f2f2f2;
+        overflow-y: auto; <!--ustawia pasek przewijania tylko dla zawartości bocznego panelu, co zapobiega pojawieniu się pionowego paska przewijania na całej stronie.-->
+      }
+      
+      .content {
+        flex-grow: 1; <!--ustawia elastyczne powiększanie głównej zawartości, co oznacza, że elementy zawarte w divie .content będą się automatycznie dostosowywać do dostępnego miejsca.-->
+        padding: 20px;
+        overflow-y: auto;
+      }
+      
+      h1 {
+        margin: 35px;
+		text-align: center;
+      }
+      
+      <!-- Stylowanie spisu treści -->
+      ol {
+        margin-top: 0;
+        <!--list-style: none;-->
+        padding-left: 0;
+      }
+      
+      li {
+        margin-bottom: 5px;
+      }
+      
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      /* Media queries dla mniejszych ekranów */
+      @media (max-width: 600px) {
+        .container {
+          flex-direction: column;
+          height: auto;
+        }
+        
+        .sidebar {
+          flex-basis: auto;
+          width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+        }
+        
+        .content {
+          flex-grow: 1;
+          padding: 10px;
+          overflow-x: hidden;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <ol>
+          <li><a href="#section1">Sekcja 1</a></li>
+          <li><a href="#section2">Sekcja 2</a></li>
+          <li><a href="#section3">Sekcja 3</a></li>
+        </ol>
+      </div>
+      <div class="content">
+        <h1>Tytuł artykułu</h1>
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum velit euismod odio vulputate, eu pretium libero lacinia. Fusce tempor neque eget mauris eleifend pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc faucibus, sapien vitae bibendum auctor, enim quam feugiat ipsum, at pharetra odio purus eget nisl. Nulla dignissim suscipit dolor, eu sollicitudin nibh fermentum at. Nulla at elit vel sapien placerat consequat sed eu velit. Sed tristique nisi vitae arcu maximus, ut pharetra nulla ullamcorper. In sit amet felis non ante volutpat vulputate vel vel dolor. Donec ut ornare nibh, eget semper ex. Proin et leo at lacus luctus viverra. Vestibulum tristique, dui sed imperdiet vehicula, nisi tortor sollicitudin justo, in euismod lacus ex a risus. In viverra sit amet mauris vel suscipit. Sed hendrerit auctor nisl, in blandit purus commodo et at.</p>-->
+		<h2 id="section1">Sekcja 1</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum velit euismod odio vulputate, eu pretium libero lacinia. Fusce tempor neque eget mauris eleifend pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+		<h2 id="section2">Sekcja 2</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum velit euismod odio vulputate, eu pretium libero lacinia. Fusce tempor neque eget mauris eleifend pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+		<h2 id="section3">Sekcja 3</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum velit euismod odio vulputate, eu pretium libero lacinia. Fusce tempor neque eget mauris eleifend pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+		</div>
+	</div>
+  </body>
+</html>
+```
