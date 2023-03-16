@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Przykładowy panel z przyciskami</title>
+	<link rel="stylesheet" href="fontawesome-free-6.3.0-web\css\all.css">
+	<style>
+		.button-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			gap: 10px;
+			padding: 10px;
+			background-color:white <!--#eee-->;
+			border-radius: 10px;
+		}
+		
+		.button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: transparent;
+			border: 2px solid #007bff;
+			border-radius: 10px;
+			font-size: 1rem;
+			font-weight: bold;
+			width: 150px;
+			height: 50px;
+			cursor: pointer;
+			transition: color 0.2s ease, background-color 0.2s ease, width 0.3s ease-in-out, height 0.3s ease-in-out;
+		}
+		
+		.button:hover {
+			color: black<!--#fff-->;
+			background-color: #inherit;
+			width:170px;
+			height: 70px:
+		}
+		
+		.button:focus {
+			box-shadow: 0 0 5px #007bff;
+			outline: none;
+		}
+		
+		.button .icon {
+			margin-right: 10px;
+			font-size: 1.5rem;
+		}
+		
+		.button.back {
+			color: black<!--#dc3545-->;
+			border-color: #dc3545;
+		}
+		
+		.button.back:hover {
+			color: black<!--#fff-->;
+			background-color: #dc3545;
+		}
+		
+		.button.bac .icon {
+			color: black;
+		}
+		
+		.button.save .icon {
+			color: black<!--#28a745-->;
+		}
+		
+		.button.delete .icon {
+			color: black<!--#dc3545-->;
+		}
+	</style>
+</head>
+<body>
+	<div class="button-container">
+		<button class="button back" type="button">
+			<i class="icon fas fa-arrow-left"></i>
+			Go back
+		</button>
+		<button class="button save" type="button">
+			<i class="icon far fa-save"></i>
+			Save
+		</button>
+		<button class="button delete" type="button">
+			<i class="icon fas fa-trash-alt"></i>
+			Delete
+		</button>
+	</div>
+</body>
+</html>
