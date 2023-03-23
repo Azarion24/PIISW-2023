@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Obsługa zdarzeń modelu DOM</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #slider {
+        width: 100px;
+        margin: 50px auto;
+      }
+      #circle {
+        width: 10px;
+        height: 10px;
+        margin: 50px auto;
+        border: 2px solid blue;
+		margin-left: 0;
+        border-radius: 50%;
+        background-color: yellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      type="range"
+      min="10"
+      max="500"
+      value="10"
+      id="slider"
+      style="background-color: blue"
+    />
+    <div id="circle"></div>
+
+    <script>
+      const slider = document.getElementById("slider");
+      const circle = document.getElementById("circle");
+
+      // Zmiana rozmiaru koła i jego tekstu przy zmianie wartości suwaka
+      slider.addEventListener("input", (event) => {
+        const value = event.target.value;
+        circle.style.width = `${value}px`;
+        circle.style.height = `${value}px`;
+        circle.textContent = `${value}px`;
+      });
+    </script>
+  </body>
+</html>
