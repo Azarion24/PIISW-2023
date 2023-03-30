@@ -1,0 +1,73 @@
+<form id="package-form" onsubmit=validateForm()>
+  <label for="nazwaInput">Nazwa:</label>
+  <input type="text" id="nazwaInput" name="name" maxlength="20">
+
+  <label for="width-input">Szerokosc (cm):</label>
+  <input type="number" id="szerokoscInput" name="width">
+
+  <label for="height-input">Wysokosc (cm):</label>
+  <input type="number" id="wysokoscInput" name="height">
+
+  <label for="depth-input">Glebokosc (cm):</label>
+  <input type="number" id="glebokoscInput" name="depth">
+
+  <button type="submit">Confirm</button>
+  <button type="reset">Clear</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nazwa</th>
+      <th>Szerokosc (cm)</th>
+      <th>Wysokosc (cm)</th>
+      <th>Glebokosc (cm)</th>
+      <th>Objetosc (m<sup>3</sup>)</th>
+    </tr>
+  </thead>
+  <tbody id="package-table">
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="4">Suma objetosci:</th>
+      <td id="sumaObjetosci">0.00</td>
+    </tr>
+  </tfoot>
+</table>
+
+
+
+<script>
+function validateForm() {
+  event.preventDefault();
+  var nazwa = document.getElementById("nazwaInput").value;
+  var szerokosc = parseFloat(document.getElementById("szerokoscInput").value);
+  var wysokosc = parseFloat(document.getElementById("wysokoscInput").value);
+  var glebokosc = parseFloat(document.getElementById("glebokoscInput").value);
+
+  if (nazwa == "" || isNaN(szerokosc) || isNaN(wysokosc) || isNaN(glebokosc)) {
+    alert("Prosze wypelnic wszystkie pola.");
+    return false;
+  }
+
+  if (szerokosc <= 0 || szerokosc > 1000 || wysokosc <= 0 || wysokosc > 1000 || glebokosc <= 0 || glebokosc > 1000) {
+    alert("Wymiary musza byc wieksze od 0 i mniejsze niz 1000.");
+    return false;
+  }
+  var objetosc = (szerokosc * wysokosc * glebokosc) / 1000000;
+  var table = document.getElementById("package-table");
+  var row = table.insertRow();
+  row.insertCell().innerHTML = nazwa;
+  row.insertCell().innerHTML = szerokosc.toFixed(2);
+  row.insertCell().innerHTML = wysokosc.toFixed(2);
+  row.insertCell().innerHTML = glebokosc.toFixed(2);
+  row.insertCell().innerHTML = objetosc.toFixed(2);
+
+ var calkowitaObjetosc = 0;
+var rows = table.getElementsByTagName("tr");
+for (var i = 0; i < rows.length; i++) {
+  calkowitaObjetosc += parseFloat(rows[i].getElementsByTagName("td")[4].innerHTML);
+}
+document.getElementById("sumaObjetosci").innerHTML = calkowitaObjetosc.toFixed(2);
+}
+</script>
